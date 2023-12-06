@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Myform from './assests/Myform';
+import Myform from './components/Myform';
 import React from 'react';
 import { ReactDOM } from 'react';
 function App() {

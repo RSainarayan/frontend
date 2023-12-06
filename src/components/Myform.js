@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 function MyForm() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [number, setNumber] = useState("");
+  const [name, setName] = useState("a");
+  const [email, setEmail] = useState("a");
+  const [number, setNumber] = useState("a");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -12,15 +12,23 @@ function MyForm() {
     formData.append('name', name);
     formData.append('email', email);
     formData.append('number', number);
+    
     try {
-      const response = await fetch('http://your_domain.com/save_data.php', {
+      const response = await fetch('http://localhost:3001/register', {
         method: 'POST',
+        mode: 'cors',
         body: formData,
+        
+        
       });
-  
+      
+      const data = await response.json(); // Parse response JSON
+      
       if (response.ok) {
+        console.log('Data saved successfully:', data);
         alert('Data saved successfully!');
       } else {
+        console.error('Failed to save data:', data);
         alert('Failed to save data.');
       }
     } catch (error) {
