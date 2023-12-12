@@ -3,16 +3,22 @@ import { Navigate } from "react-router-dom";
 
 function Home() {
     const [gotoform, setGoToform] = React.useState(false);
+    const [readform, setReadForm] = React.useState(false);
 
-    const handleClick = () => {
-        // Perform some action
-        // Update state to trigger navigation
+    const handleCreateClick = () => {
         setGoToform(true);
     };
 
-    // Redirect to '/form' if goToForm state is true
+    const handleReadClick = () => {
+        setReadForm(true);
+    };
+
+    
     if (gotoform) {
         return <Navigate to="/form" />;
+    }
+    if (readform) {
+        return <Navigate to="/read" />;
     }
 
     return (
@@ -20,17 +26,25 @@ function Home() {
             <div className="">
                 <button 
                     onClick={() => {
-                        handleClick();
+                        handleCreateClick();
                     }}
                 >
                     Create
                 </button>
+                
                 <button 
-                onClick={() => {
-                    handleClick();
-                }}>
+                    onClick={() => {
+                        handleReadClick();
+                    }}
+                >
                     Read
                 </button>
+                
+
+               
+
+                
+
             </div>
         </div>
     );
