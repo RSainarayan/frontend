@@ -7,6 +7,7 @@ import React from 'react';
 import Home from './components/Home'
 import Read from './components/Read'
 import { ReactDOM } from 'react';
+import Edit from "./components/Edit";
 function App() {
   return (
     <div className='App'>
@@ -15,6 +16,7 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/form' element={<Myform/>}/>
           <Route path='/read' element={<Read/>}/>
+          <Route path="/edit" element={<Edit/>}/>
           
         </Routes>
       </Router>
